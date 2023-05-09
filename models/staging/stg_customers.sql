@@ -1,20 +1,20 @@
-with
+with source as (
 
-source as (
-
-    select * from {{ source('ecom', 'raw_customers') }}
+    {#-
+    Normally we would select from the table here, but we are using seeds to load
+    our data in this project
+    #}
+    select * from {{ source('dbt_bq_example','raw_customers') }}
 
 ),
 
 renamed as (
 
     select
-
-        ----------  ids
         id as customer_id,
-
-        ---------- properties
-        name as customer_name
+        first_name,
+        last_name,
+        email
 
     from source
 

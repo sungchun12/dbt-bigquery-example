@@ -7,3 +7,6 @@ logs/
 reports/sources/*.csv
 .meltano
 .DS_Store
+
+service_account.json
+venv/
